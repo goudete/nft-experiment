@@ -495,12 +495,12 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
-"@nomiclabs/hardhat-ethers@^2.0.3":
+"@nomiclabs/hardhat-ethers@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@nomiclabs/hardhat-ethers/-/hardhat-ethers-2.0.4.tgz#288889c338acaf47cabd29020e561d0077b7efcf"
   integrity sha512-7LMR344TkdCYkMVF9LuC9VU2NBIi84akQiwqm7OufpWaDgHbWhuanY53rk3SVAW0E4HBk5xn5wl5+bN5f+Mq5w==
 
-"@nomiclabs/hardhat-waffle@^2.0.1":
+"@nomiclabs/hardhat-waffle@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.2.tgz#6030aa6fd9ea05327bf79d1107356af906d8b1e4"
   integrity sha512-dnhry6Bj15O8L3pBksTuXfr4RAUIf+BxRxWJXiu+ioSawcQaOcNF4gfMxn6ik0auk3zrsAJLA6m9vqe87d4xvg==
@@ -1938,7 +1938,7 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-chai@^4.3.4:
+chai@^4.3.6:
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.3.6.tgz#ffe4ba2d9fa9d6680cc0b370adae709ec9011e9c"
   integrity sha512-bbcp3YfHCUzMOvKqsztczerVgBKSsEijCySNlHHbX3VG1nskvqjz5Rfso1gGwD6w6oOV3eI60pKuMOV5MV7p3Q==
@@ -3094,7 +3094,7 @@ ethereumjs-wallet@0.6.5:
     utf8 "^3.0.0"
     uuid "^3.3.2"
 
-ethers@^5.0.1, ethers@^5.0.2, ethers@^5.4.7, ethers@^5.5.2:
+ethers@^5.0.1, ethers@^5.0.2, ethers@^5.4.7, ethers@^5.5.2, ethers@^5.5.3:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.5.3.tgz#1e361516711c0c3244b6210e7e3ecabf0c75fca0"
   integrity sha512-fTT4WT8/hTe/BLwRUtl7I5zlpF3XC3P/Xwqxc5AIP2HGlH15qpmjs0Ou78az93b1rLITzXLFxoNX63B8ZbUd7g==
