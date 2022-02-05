@@ -10,7 +10,7 @@ contract WebTimeFolks is ERC721Enumerable, Ownable {
     string private notRevealedUri;
     string private baseExtension = ".json";
 
-    bool public isAllowListActive = false;
+    bool public isWhiteListActive = false;
     bool public isPublicSaleActive = false;
     bool public revealed = false;
 
@@ -37,20 +37,20 @@ contract WebTimeFolks is ERC721Enumerable, Ownable {
         notRevealedUri = _notRevealedURI;
     }
 
-    function setIsAllowListActive(bool _isAllowListActive) external onlyOwner {
-        isAllowListActive = _isAllowListActive;
+    function setIsAllowListActive(bool _isWhiteListActive) external onlyOwner {
+        isWhiteListActive = _isWhiteListActive;
     }
 
-    function setSaleState(bool newState) public onlyOwner {
-        isPublicSaleActive = newState;
+    function setIsPublicSaleActive(bool _isPublicSaleActive) public onlyOwner {
+        isPublicSaleActive = _isPublicSaleActive;
     }
 
-    function setRevealed(bool _state) public onlyOwner {
-      revealed = _state;
+    function setRevealed(bool _revealed) public onlyOwner {
+      revealed = _revealed;
     }
 
-    function setPrice(uint256 _newCost) public onlyOwner {
-        PRICE = _newCost;
+    function setPrice(uint256 _price) public onlyOwner {
+        PRICE = _price;
     }
 
     function setAllowList(address[] calldata addresses, uint8 numAllowedToMint) external onlyOwner {
@@ -65,7 +65,7 @@ contract WebTimeFolks is ERC721Enumerable, Ownable {
 
     function mintAllowList(uint8 numberOfTokens) external payable {
         uint256 supply = totalSupply();
-        require(isAllowListActive, "WL is not active");
+        require(isWhiteListActive, "WL is not active");
         require(numberOfTokens <= _allowList[msg.sender], "Exceeded max available to purchase");
         require(supply + numberOfTokens <= MAX_SUPPLY, "Purchase would exceed max tokens");
         require(PRICE * numberOfTokens <= msg.value, "Ether value sent is not correct");
