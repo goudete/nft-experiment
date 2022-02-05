@@ -19,7 +19,7 @@ contract WebTimeFolks is ERC721Enumerable, Ownable {
     uint256 public MAX_MINT_AMOUNT = 3;
     uint256 public RESERVE_COUNT = 100;
 
-    mapping(address => uint8) private _allowList;
+    mapping(address => uint8) private _whiteList;
 
     constructor(
         string memory _initBaseURI,
@@ -37,7 +37,7 @@ contract WebTimeFolks is ERC721Enumerable, Ownable {
         notRevealedUri = _notRevealedURI;
     }
 
-    function setIsAllowListActive(bool _isWhiteListActive) external onlyOwner {
+    function setIsWhiteListActive(bool _isWhiteListActive) external onlyOwner {
         isWhiteListActive = _isWhiteListActive;
     }
 
@@ -53,9 +53,9 @@ contract WebTimeFolks is ERC721Enumerable, Ownable {
         PRICE = _price;
     }
 
-    function setAllowList(address[] calldata addresses, uint8 numAllowedToMint) external onlyOwner {
+    function setWhiteList(address[] calldata addresses, uint8 numAllowedToMint) external onlyOwner {
         for (uint256 i = 0; i < addresses.length; i++) {
-            _allowList[addresses[i]] = numAllowedToMint;
+            _whiteList[addresses[i]] = numAllowedToMint;
         }
     }
 
@@ -63,14 +63,14 @@ contract WebTimeFolks is ERC721Enumerable, Ownable {
         return baseURI;
     }
 
-    function mintAllowList(uint8 numberOfTokens) external payable {
+    function mintWhiteList(uint8 numberOfTokens) external payable {
         uint256 supply = totalSupply();
         require(isWhiteListActive, "WL is not active");
-        require(numberOfTokens <= _allowList[msg.sender], "Exceeded max available to purchase");
+        require(numberOfTokens <= _whiteList[msg.sender], "Exceeded max available to purchase");
         require(supply + numberOfTokens <= MAX_SUPPLY, "Purchase would exceed max tokens");
         require(PRICE * numberOfTokens <= msg.value, "Ether value sent is not correct");
 
-        _allowList[msg.sender] -= numberOfTokens;
+        _whiteList[msg.sender] -= numberOfTokens;
         for (uint256 i = 0; i < numberOfTokens; i++) {
             _safeMint(msg.sender, supply + i);
         }
